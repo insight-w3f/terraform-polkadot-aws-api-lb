@@ -52,6 +52,8 @@ No issue is creating limit on this module.
 |------|-------------|
 | lb\_arn | n/a |
 | lb\_id | n/a |
+| lb\_target\_group\_arn | n/a |
+| lb\_target\_group\_id | n/a |
 | name | n/a |
 | public\_ips | n/a |
 
