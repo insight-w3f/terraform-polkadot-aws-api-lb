@@ -50,6 +50,7 @@ No issue is creating limit on this module.
 
 | Name | Description |
 |------|-------------|
+| dns\_name | n/a |
 | lb\_arn | n/a |
 | lb\_id | n/a |
 | lb\_target\_group\_arn | n/a |
