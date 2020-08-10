@@ -38,11 +38,7 @@ No issue is creating limit on this module.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
 | create | Bool to create the resources | `bool` | `true` | no |
-| environment | The environment | `string` | `"dev"` | no |
-| namespace | The namespace to deploy into | `string` | `"polkadot"` | no |
-| network\_name | The network name, ie kusama / mainnet | `string` | `"kusama"` | no |
-| owner | Owner of the infrastructure | `string` | `"insight-w3f"` | no |
-| stage | The stage of the deployment | `string` | `"test"` | no |
+| id | A unique identifier for the resources | `string` | `"lb"` | no |
 | subnet\_ids | The subnet ids for the LB | `list(string)` | n/a | yes |
 | vpc\_id | vpc id | `string` | n/a | yes |
 
@@ -55,7 +51,6 @@ No issue is creating limit on this module.
 | lb\_id | n/a |
 | lb\_target\_group\_arn | n/a |
 | lb\_target\_group\_id | n/a |
-| name | n/a |
 | public\_ips | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

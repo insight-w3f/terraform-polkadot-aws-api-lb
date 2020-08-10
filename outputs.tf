@@ -14,8 +14,6 @@ output "dns_name" {
   value = aws_lb.this.dns_name
 }
 
-
-
 output "lb_id" {
   value = aws_lb.this.id
 }
@@ -30,8 +28,4 @@ output "lb_target_group_arn" {
 
 output "lb_target_group_id" {
   value = aws_lb_target_group.this.id
-}
-
-output "name" {
-  value = module.label.name
 }

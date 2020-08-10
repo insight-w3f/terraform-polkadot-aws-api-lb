@@ -1,19 +1,6 @@
 
 data "aws_region" "this" {}
 
-module "label" {
-  source = "github.com/robc-io/terraform-null-label.git?ref=0.16.1"
-  tags = {
-    NetworkName = var.network_name
-    Owner       = var.owner
-    Terraform   = true
-    VpcType     = "main"
-  }
-
-  environment = var.environment
-  namespace   = var.namespace
-  stage       = var.stage
-}
 
 resource "aws_eip" "this" {
   count = length(var.subnet_ids)
@@ -21,7 +8,7 @@ resource "aws_eip" "this" {
 
 # Network Load Balancer for apiservers and ingress
 resource "aws_lb" "this" {
-  name = module.label.id
+  name = var.id
 
   load_balancer_type = "network"
 
@@ -35,11 +22,6 @@ resource "aws_lb" "this" {
       allocation_id = aws_eip.this.*.id[subnet_mapping.key]
     }
   }
-
-  //  subnet_mapping {
-  //    subnet_id     = var.subnet_ids
-  //    allocation_id = aws_eip.this.id
-  //  }
 
   enable_cross_zone_load_balancing = true
 }
@@ -56,7 +38,7 @@ resource "aws_lb_listener" "this" {
 }
 
 resource "aws_lb_target_group" "this" {
-  name        = module.label.id
+  name        = var.id
   vpc_id      = var.vpc_id
   target_type = "instance"
 
